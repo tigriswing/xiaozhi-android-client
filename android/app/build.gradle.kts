@@ -28,13 +28,28 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+
+        signingConfigs {
+            create("release") {
+                keyAlias = "ums_test"
+                keyPassword = "123456"
+                storeFile = file("xz_test.jks")
+                storePassword = "123456"
+            }
+            getByName("debug") {
+                keyAlias = "ums_test"
+                keyPassword = "123456"
+                storeFile = file("xz_test.jks")
+                storePassword = "123456"
+            }
+        }
     }
 
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("release")
             // 启用R8优化
             isMinifyEnabled = true
             isDebuggable = false

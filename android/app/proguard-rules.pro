@@ -23,4 +23,7 @@
     public static int v(...);
     public static int d(...);
     public static int i(...);
-} 
+}
+
+# Ignore missing Play Core classes
+-dontwarn com.google.android.play.core.**
